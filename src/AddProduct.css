@@ -1,0 +1,250 @@
+:root {
+    --primary: #ff3f6c;
+    --primary-dark: #e83660;
+    --dark: #282c3f;
+    --gray-text: #7e818c;
+    --white: #ffffff;
+    --bg-accent: #fceef0;
+    --border: #e5e7eb;
+}
+
+.add-product-container {
+    background-color: var(--bg-accent);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.add-product-card {
+    background: var(--white);
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.admin-badge {
+    display: inline-block;
+    background: var(--dark);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.form-header h3 span { color: var(--primary); }
+.form-header h2 { font-size: 26px; color: var(--dark); margin-bottom: 5px; }
+.form-header p { color: var(--gray-text); margin-bottom: 30px; }
+
+form { text-align: left; }
+
+/* Horizontal Layout for pairs */
+.input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: #fcfcfc;
+    transition: 0.3s;
+    color: var(--dark);
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary);
+    background-color: var(--white);
+    box-shadow: 0 0 0 4px rgba(255, 63, 108, 0.1);
+}
+
+.submit-product-btn {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.submit-product-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 63, 108, 0.3);
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+    .add-product-card {
+        max-width: 750px;
+        padding: 50px;
+    }
+
+    .form-header h2 {
+        font-size: 30px;
+    }
+
+    .input-group {
+        gap: 25px;
+    }
+}
+
+/* Laptop / Medium Desktop */
+@media (max-width: 1000px) {
+    .add-product-card {
+        max-width: 580px;
+        padding: 35px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .add-product-container {
+        padding: 30px 15px;
+    }
+
+    .add-product-card {
+        max-width: 520px;
+        padding: 30px 25px;
+    }
+
+    .input-group {
+        gap: 15px;
+    }
+
+    .form-header h2 {
+        font-size: 24px;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 600px) {
+    .add-product-container {
+        padding: 25px 15px;
+    }
+
+    .add-product-card {
+        padding: 30px 20px;
+        border-radius: 16px;
+        max-width: 100%;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .admin-badge {
+        font-size: 10px;
+        padding: 4px 12px;
+        margin-bottom: 15px;
+    }
+
+    .form-header h2 {
+        font-size: 22px;
+        margin-bottom: 4px;
+    }
+
+    .form-header p {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .input-box {
+        margin-bottom: 16px;
+    }
+
+    label {
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+        padding: 11px 13px;
+        font-size: 13px;
+    }
+
+    textarea {
+        height: 90px;
+    }
+
+    .submit-product-btn {
+        padding: 14px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 400px) {
+    .add-product-container {
+        padding: 20px 10px;
+    }
+
+    .add-product-card {
+        padding: 25px 15px;
+        border-radius: 14px;
+    }
+
+    .admin-badge {
+        font-size: 9px;
+    }
+
+    .form-header h2 {
+        font-size: 20px;
+    }
+
+    .form-header p {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    input, select, textarea {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .submit-product-btn {
+        padding: 13px;
+        font-size: 13px;
+    }
+}
