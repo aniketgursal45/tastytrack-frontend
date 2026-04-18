@@ -22,7 +22,7 @@ export default function AddProduct() {
 
         event.preventDefault();
 
-        const url="http://localhost:8080/admin/";
+        const url="https://tastytrack-backend-3mjg.onrender.com/admin/";
 
         fetch(url+"AProduct",{
             method:"POST",
