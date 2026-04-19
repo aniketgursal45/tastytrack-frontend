@@ -24,7 +24,7 @@ export default function Login() {
     function handlesub(event) {
         event.preventDefault();
 
-        const url = "http://localhost:8080/verifyLogin";
+        const url = "https://tastytrack-backend-3mjg.onrender.com/verifyLogin";
 
         fetch(url, {
             method: "POST",
