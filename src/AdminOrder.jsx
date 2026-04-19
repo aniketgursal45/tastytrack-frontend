@@ -8,7 +8,7 @@ export default function AdminOrder() {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch("http://localhost:8080/admin/getOrder");
+                const response = await fetch("https://tastytrack-backend-3mjg.onrender.com/admin/getOrder");
                 const data = await response.json();
                 setOrders(data);
             } catch (error) {
@@ -24,7 +24,7 @@ export default function AdminOrder() {
         const newStatus = selectElement.value;
 
         try {
-            const response = await fetch(`http://localhost:8080/admin/updateStatus/${orderId}/${newStatus}`, {
+            const response = await fetch(`https://tastytrack-backend-3mjg.onrender.com/admin/updateStatus/${orderId}/${newStatus}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' }
             });
