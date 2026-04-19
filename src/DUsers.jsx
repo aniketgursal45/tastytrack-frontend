@@ -5,7 +5,7 @@ export default function DUsers() {
 
     let [users, setUsers] = useState([]);
 
-    const url = "http://localhost:8080/admin/uList"
+    const url = "https://tastytrack-backend-3mjg.onrender.com/admin/uList"
 
     useEffect(() => {
         fetch(url).then((res) => res.json()).then((data) => setUsers(data))
@@ -16,7 +16,7 @@ export default function DUsers() {
 
         let n = Number(num);
 
-        fetch(`http://localhost:8080/admin/deluser/${n}`,{
+        fetch(`https://tastytrack-backend-3mjg.onrender.com/admin/deluser/${n}`,{
             method:"DELETE"
         }).then((res) => res.json()).then((data) => {
             if (data === true) {
