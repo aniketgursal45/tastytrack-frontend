@@ -31,7 +31,7 @@ export default function UpdateProduct() {
     function handlesub(event) {
         event.preventDefault();
 
-        const url = "http://localhost:8080/admin/uProduct";
+        const url = "https://tastytrack-backend-3mjg.onrender.com/admin/uProduct";
 
         fetch(url, {
             method: "PUT",
