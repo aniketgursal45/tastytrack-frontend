@@ -24,7 +24,7 @@ export default function ForgotPassword() {
     function handlesub(event) {
         event.preventDefault();
 
-        const url = "http://localhost:8080/verifyforget";
+        const url = "https://tastytrack-backend-3mjg.onrender.com/verifyforget";
 
         fetch(url, {
             method: "POST",
