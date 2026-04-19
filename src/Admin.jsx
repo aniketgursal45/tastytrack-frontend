@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Admin() {
-
+    const [loading, setLoading] = useState(false);
     let nav = useNavigate();
     let [uadmin, setUadmin] = useState({
         adminUser: "",
@@ -19,6 +19,7 @@ export default function Admin() {
 
     function handlesub(event) {
         event.preventDefault();
+        setLoading(true);
 
         let url = "https://tastytrack-backend-3mjg.onrender.com/verifyadmin"
 
@@ -35,13 +36,16 @@ export default function Admin() {
             } else {
                 alert("wrong credential");
             }
-        })
-
-        setUadmin({
-            adminUser: "",
-            adminPassword: ""
-        })
-
+            setUadmin({
+                adminUser: "",
+                adminPassword: ""
+            })
+        }).catch((err) => {
+            console.log(err);
+            alert("Admin server is waking up... please wait.");
+        }).finally(() => {
+            setLoading(false);
+        });
     }
 
     return (
@@ -66,7 +70,15 @@ export default function Admin() {
                         <input type="password" id="adminPass" name="adminPassword" placeholder="••••••••" required value={uadmin.adminPassword} onChange={handleChange} />
                     </div>
 
-                    <button type="submit" className="admin-btn">Verify & Enter</button>
+                    <button type="submit" className="admin-btn" disabled={loading}>
+                        {loading ? "Verifying..." : "Verify & Enter"}
+                    </button>
+
+                    {loading && (
+                        <p style={{ color: 'orange', textAlign: 'center', marginTop: '10px' }}>
+                            ⏳ Waking up Admin Services...
+                        </p>
+                    )}
 
                     <p className="back-link">
                         <Link to="/login">← Back to Customer Site</Link>
