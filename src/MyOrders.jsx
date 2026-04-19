@@ -11,7 +11,7 @@ export default function MyOrders() {
 
         let userid=localStorage.getItem("userId");
 
-        fetch(`http://localhost:8080/user/getOrders/${userid}`) 
+        fetch(`https://tastytrack-backend-3mjg.onrender.com/user/getOrders/${userid}`) 
             .then(res => res.json())
             .then(data => {
                 console.log(data)
