@@ -21,7 +21,7 @@ export default function UpdatePassword() {
 
     function handleSub(event) {
         event.preventDefault();
-        const url = "http://localhost:8080/updatePass";
+        const url = "https://tastytrack-backend-3mjg.onrender.com/updatePass";
 
         if (uPass.password !== uPass.confirmPassword) {
             return alert("passwords do not match")
