@@ -122,7 +122,7 @@ export default function UHome() {
                         {categories.map((cat, index) => (
                             <div className="category-item" key={index}>
                                 <div className="img-circle">
-                                    <img src={cat.img} alt={cat.name} />
+                                    <img src={cat.img} alt={cat.name} loading="lazy" />
                                 </div>
                                 <p>{cat.name}</p>
                             </div>
@@ -135,7 +135,7 @@ export default function UHome() {
                         {product.map((food) => (
                             <div className="food-card" key={food.product_id}>
                                 <div className="image-container">
-                                    <img src={food.image_path} alt={food.name} />
+                                    <img src={food.image_path} alt={food.name} loading="lazy" />
                                     <span className="category-badge-tag">{food.category}</span>
                                 </div>
                                 <div className="food-details">
