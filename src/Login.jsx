@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
+   
+    const [loading, setLoading] = useState(false);
+    
     let nav = useNavigate();
 
     let [userlog, setUserlog] = useState({
@@ -23,6 +26,8 @@ export default function Login() {
 
     function handlesub(event) {
         event.preventDefault();
+
+        setLoading(true);
 
         const url = "https://tastytrack-backend-3mjg.onrender.com/verifyLogin";
 
@@ -46,7 +51,13 @@ export default function Login() {
                 username: "",
                 password: ""
             })
+        }).catch((err) => {
+            console.log(err);
+            alert("Server is waking up or connection lost. Try again in 10 seconds.");
         })
+        .finally(() => {
+            setLoading(false); 
+        });
 
 
     }
@@ -78,7 +89,15 @@ export default function Login() {
                         <Link to="/forgetpass">Forgot Password?</Link>
                     </div>
 
-                    <button type="submit">Login & Explore</button>
+                    <button type="submit" disabled={loading}>
+                    {loading ? "Connecting to Server..." : "Login & Explore"}
+                    </button>
+
+                    {loading && (
+                    <p style={{ color: 'orange', textAlign: 'center', marginTop: '10px' }}>
+                    ⏳ Waking up the cloud server... please wait up to 60s.
+                    </p>
+)}
 
                     <p className="signup-text">
                         Don't have an account? <Link to="/">Create one here</Link>
