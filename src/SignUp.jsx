@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 
 export default function SignUp() {
 
+   
+    const [loading, setLoading] = useState(false);
+    
     let [user, setUser] = useState({
         username: "",
         email: "",
@@ -36,6 +39,7 @@ export default function SignUp() {
             return alert("password must be 8 characters or more")
         }
 
+        setLoading(true);
         const url = "https://tastytrack-backend-3mjg.onrender.com/save";
 
         fetch(url, {
@@ -53,7 +57,9 @@ export default function SignUp() {
                 securityQuestion: "",
                 securityAnswer: ""
             })
-        }).catch(err => console.log(err));
+        }).catch(err => console.log(err)).finally(() => {
+            setLoading(false); 
+        });
 
 
 
@@ -109,7 +115,15 @@ export default function SignUp() {
                             <input type="text" required id="sa" name="securityAnswer" value={user.securityAnswer} placeholder="Your answer" onChange={handleUser} />
                         </div>
 
-                        <button type="submit">Register & Shop</button>
+                       <button type="submit" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
+                            {loading ? "Connecting to Server..." : "Register & Shop"}
+                        </button>
+
+                        {loading && (
+                            <p style={{ color: '#ff9800', fontSize: '0.85rem', marginTop: '10px', textAlign: 'center' }}>
+                                ⏳ Waking up the server... Please wait (up to 60s)
+                            </p>
+                        )}
 
                         <p className="login-text">
                             Already have an account? <Link to="/login">Login here</Link>
