@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 export default function ForgotPassword() {
-
+    const [loading, setLoading] = useState(false);
     let [user, setUser] = useState({
         email: "",
         securityQuestion: "",
@@ -12,17 +12,15 @@ export default function ForgotPassword() {
     })
     const navigate = useNavigate();
 
-
     function handleUser(event) {
-
         setUser((prev) => {
             return { ...prev, [event.target.name]: event.target.value }
         })
-
     }
 
     function handlesub(event) {
         event.preventDefault();
+        setLoading(true);
 
         const url = "https://tastytrack-backend-3mjg.onrender.com/verifyforget";
 
@@ -45,11 +43,13 @@ export default function ForgotPassword() {
                 securityQuestion: "",
                 securityAnswer: ""
             })
-        })
-
-
+        }).catch((err) => {
+            console.log(err);
+            alert("Server is waking up. Please wait.");
+        }).finally(() => {
+            setLoading(false);
+        });
     }
-
 
     return (
         <div className="forgot-password-container">
@@ -83,7 +83,15 @@ export default function ForgotPassword() {
                         <input type="text" id="sa" name="securityAnswer" value={user.securityAnswer} onChange={handleUser} placeholder="Enter your answer" required />
                     </div>
 
-                    <button type="submit" className="verify-btn">Verify Identity</button>
+                    <button type="submit" className="verify-btn" disabled={loading}>
+                        {loading ? "Verifying..." : "Verify Identity"}
+                    </button>
+
+                    {loading && (
+                        <p style={{ color: 'orange', textAlign: 'center', marginTop: '10px' }}>
+                            ⏳ Waking up the cloud server... please wait.
+                        </p>
+                    )}
 
                     <p className="back-to-login">
                         Remembered your password? <Link to="/login">Login here</Link>
