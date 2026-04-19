@@ -15,18 +15,13 @@ export default function UHome() {
     }
 }, []);
 
-useEffect(() => {
-    window.history.pushState(null, "", window.location.href);
-    window.onpopstate = () => {
-        window.history.go(1);
-    };
-}, []);
+
 
     useEffect(() => {
         let username = localStorage.getItem("username");
         let password = localStorage.getItem("password");
 
-        fetch(`http://localhost:8080/user/getId/${username}/${password}`)
+        fetch(`https://tastytrack-backend-3mjg.onrender.com/user/getId/${username}/${password}`)
             .then(res => res.json())
             .then((id) => {
                 localStorage.setItem("userId", id); 
@@ -53,7 +48,7 @@ useEffect(() => {
     });
 
     let count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    let url = "http://localhost:8080/user/getProduct";
+    let url = "https://tastytrack-backend-3mjg.onrender.com/user/getProduct";
 
     function handleCart(id, name, img, des, price, cat) {
         const newItem = { id, name, img, des, price, cat, quantity: 1 };
