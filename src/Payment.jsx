@@ -54,7 +54,7 @@ export default function Payment() {
             }
         }
 
-        let url = "http://localhost:8080/user/sOrder"
+        let url = "https://tastytrack-backend-3mjg.onrender.com/user/sOrder"
 
         fetch(url, {
             method: "POST",
