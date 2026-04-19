@@ -20,7 +20,7 @@ export default function Admin() {
     function handlesub(event) {
         event.preventDefault();
 
-        let url = "http://localhost:8080/verifyadmin"
+        let url = "https://tastytrack-backend-3mjg.onrender.com/verifyadmin"
 
         fetch(url, {
             method: "POST",
