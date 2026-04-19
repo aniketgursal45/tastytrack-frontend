@@ -8,13 +8,13 @@ export default function ManageProducts() {
 
     let [mProduct, setProduct] = useState([]);
 
-    const url = "http://localhost:8080/admin/sList"
+    const url = "https://tastytrack-backend-3mjg.onrender.com/admin/sList"
 
     function delProduct(num) {
 
         let n = Number(num);
 
-        fetch(`http://localhost:8080/admin/delproduct/${n}`,{
+        fetch(`https://tastytrack-backend-3mjg.onrender.com/admin/delproduct/${n}`,{
             method:"DELETE"
         }).then((res) => res.json()).then((data) => {
             if (data === true) {
