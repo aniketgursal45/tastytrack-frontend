@@ -29,16 +29,16 @@ export default function UHome() {
             });
     }, [])
 
-    const categories = [
-        { name: 'Pizza', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=200&h=200&auto=format&fit=crop' },
-        { name: 'Burger', img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=200&h=200&auto=format&fit=crop' },
-        { name: 'Biryani', img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=200&h=200&auto=format&fit=crop' },
-        { name: 'Chinese', img: 'https://images.unsplash.com/flagged/photo-1556742524-750f2ab99913?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2hpbmVzZSUyMGZvb2R8ZW58MHx8MHx8fDA%3D' },
-        { name: 'South Indian', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=200&h=200&auto=format&fit=crop' },
-        { name: 'Desserts', img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=200&h=200&auto=format&fit=crop' },
-        { name: 'Rolls', img: 'https://images.unsplash.com/photo-1626028937276-825810a384b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Um9sbHMlMjBmb29kfGVufDB8fDB8fHww' },
-        { name: 'Thali', img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=200&h=200&auto=format&fit=crop' }
-    ];
+   const categories = [
+    { name: 'Pizza', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=200&fit=crop&q=80' },
+    { name: 'Burger', img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&h=200&fit=crop&q=80' },
+    { name: 'Biryani', img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&h=200&fit=crop&q=80' },
+    { name: 'Chinese', img: 'https://images.unsplash.com/flagged/photo-1556742524-750f2ab99913?w=200&h=200&fit=crop&q=80' },
+    { name: 'South Indian', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=200&h=200&fit=crop&q=80' },
+    { name: 'Desserts', img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=200&h=200&fit=crop&q=80' },
+    { name: 'Rolls', img: 'https://images.unsplash.com/photo-1626028937276-825810a384b1?w=200&h=200&fit=crop&q=80' },
+    { name: 'Thali', img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=200&h=200&fit=crop&q=80' }
+];
 
     let [product, setProduct] = useState([]);
 
