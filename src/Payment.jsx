@@ -145,7 +145,7 @@ export default function Payment() {
 
                             <div className="summary-line">
                                 <span>Delivery Fee</span>
-                                <span>₹{totalCost > 99 ? "Free Above 100 Rs order" : 40}</span>
+                                <span>{totalCost > 99 ? "Free Above ₹100 Rs order" : 40}</span>
                             </div>
 
                             <hr />
