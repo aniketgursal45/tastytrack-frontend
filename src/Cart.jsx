@@ -40,7 +40,7 @@ let[cart,setCart]=useState(()=>{
             
             <header className="cart-nav">
                 <div className="nav-inner">
-                    <h1 className="brand-logo">Aniket's <span>Cart</span></h1>
+                    <h1 className="brand-logo"><span>Cart</span></h1>
                     <Link to="/UHome" className="back-link">← Back to Order</Link>
                 </div>
             </header>
