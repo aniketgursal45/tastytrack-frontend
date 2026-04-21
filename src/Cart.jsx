@@ -11,6 +11,8 @@ let[cart,setCart]=useState(()=>{
     const rawdata = localStorage.getItem("tastyCart");
     return rawdata ? JSON.parse(rawdata) : [];
 })
+
+    let username=localStorage.getItem("username");
     
     const subtotal = cart.reduce((acc, item) => acc + (Number(item.price) * item.quantity), 0);
     const total = subtotal;
@@ -40,7 +42,7 @@ let[cart,setCart]=useState(()=>{
             
             <header className="cart-nav">
                 <div className="nav-inner">
-                    <h1 className="brand-logo"><span>Cart</span></h1>
+                    <h1 className="brand-logo">{username's}<span>Cart</span></h1>
                     <Link to="/UHome" className="back-link">← Back to Order</Link>
                 </div>
             </header>
