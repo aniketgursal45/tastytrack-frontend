@@ -15,8 +15,19 @@ import Payment from "./Payment";
 import OrderSuccess from "./OrderSuccess";
 import MyOrders from "./MyOrders";
 import AdminOrder from "./AdminOrder";
+import { useEffect } from "react";
 
 function App() {
+
+   useEffect(() => {
+    const interval = setInterval(() => {
+      fetch("https://tastytrack-backend-3mjg.onrender.com/ping")
+        .then(() => console.log("Pinged backend"))
+        .catch(() => console.log("Ping failed"));
+    }, 5 * 60 * 1000); // 5 minutes
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
